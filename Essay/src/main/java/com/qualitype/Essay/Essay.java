@@ -29,7 +29,11 @@ public class Essay {
 			while (rwi.hasNext()) {
 				newText.add(rwi.next());
 			}
-			newText.remove(newText.size() - 1);
+			if (newText.size() > 0) {
+				newText.remove(newText.size() - 1);
+			} else {
+				return null;
+			}
 			final StringBuilder sb = new StringBuilder();
 			for (final String string : newText) {
 				sb.append(string + " ");
@@ -59,7 +63,6 @@ public class Essay {
 					g.addEdge(words[i], words[i + 1]);
 				}
 			}
-
 		}
 	}
 }
